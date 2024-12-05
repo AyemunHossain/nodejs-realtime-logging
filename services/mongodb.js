@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import config from "config";
 
+const mongoConfig = config.get('mongodb');
 dotenv.config();
 
 const options = {
@@ -11,7 +13,7 @@ const options = {
     family: 4 // Use IPv4
 };
 
-const uri = `mongodb://${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_NAME}?authSource=${process.env.MONGODB_AUTH_SOURCE}`;
+const uri = `mongodb://${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.database}?authSource=${mongoConfig.authSource}`;
 
 mongoose.connect(uri, options);
 

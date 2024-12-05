@@ -1,25 +1,29 @@
-# Node.js Boilerplate
+# Node.js Real-Time Logging with Discord Bot
 
-A simple and well-organized Node.js boilerplate to kickstart your projects quickly. This boilerplate provides a solid foundation with common tools and best practices, allowing you to focus on building amazing applications.
+A powerful and efficient Node.js project that enables real-time logging and monitoring using a Discord bot. This setup allows you to track logs, errors, and status updates of your applications directly in a Discord channel. It's a great way to keep your team informed and manage server or app performance in real-time.
 
 ## Project Structural Features
 
-- **Express**: A fast, unopinionated, minimalist web framework for Node.js.
-- **ESLint**: Enforce coding style and find problematic patterns in your code.
-- **Jest**: A delightful JavaScript testing framework.
-- **Docker**: Easily containerize your application for deployment.
-- **Continuous Integration**: Integrates with popular CI/CD platforms like Travis CI and GitHub Actions.
-- **Contributor Friendly**: We welcome contributions from the community.
+- **Discord.js**: A powerful library to interact with the Discord API, which helps you send log messages to a Discord channel.
+- **Winston**: A versatile logging library for Node.js, used to log and format messages efficiently.
+- **Express**: A minimalistic framework for setting up a web server and handling requests.
+- **ESLint**: Helps enforce coding styles and prevent potential issues by linting the code.
+- **Docker**: Simplify your application's deployment by containerizing the project.
+- **Continuous Integration**: Integrates with popular CI/CD services like GitHub Actions for automatic testing and deployment.
+- **Real-Time Updates**: Sends application logs, errors, and status messages directly to a Discord server for instant updates.
 
 ## Microservice
 
-- **Mongodb**: A document-oriented NoSQL database used for high volume data storage.
+- **MongoDB**: A NoSQL database that stores logs and any application-related data for later analysis.
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/AyemunHossain/nodejs-boilerplate-basic`
+1. Clone the repository: `git clone https://github.com/yourusername/nodejs-realtime-logging-discord-bot`
 2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
+3. Set up the required environment variables:
+   - `DISCORD_TOKEN`: Your Discord bot token.
+   - `CHANNEL_ID`: The Discord channel ID where the logs will be sent.
+4. Start the development server: `npm start`
 
 ## How to Contribute
 

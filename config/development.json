@@ -1,0 +1,17 @@
+{
+    "https_port": 448,
+    "mongodb": {
+        "host": "localhost",
+        "port": 27017,
+        "user": "secureadmin1",
+        "password": "!!19$^ashiK!!19$^",
+        "database": "boiler-plate",
+        "authSource": "boiler-plate"
+    },
+    "DISCORD":{
+        "BOT_TOKEN": "",
+        "ERROR_CHANNEL_ID": "",
+        "SQL_LOG_CHANNEL_ID": "",
+        "ETC_LOG_CHANNEL_ID": ""
+    }
+}
