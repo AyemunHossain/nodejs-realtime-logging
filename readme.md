@@ -5,7 +5,6 @@ A powerful and efficient Node.js project that enables real-time logging and moni
 ## Project Structural Features
 
 - **Discord.js**: A powerful library to interact with the Discord API, which helps you send log messages to a Discord channel.
-- **Winston**: A versatile logging library for Node.js, used to log and format messages efficiently.
 - **Express**: A minimalistic framework for setting up a web server and handling requests.
 - **ESLint**: Helps enforce coding styles and prevent potential issues by linting the code.
 - **Docker**: Simplify your application's deployment by containerizing the project.
