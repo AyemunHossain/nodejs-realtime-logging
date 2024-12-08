@@ -14,30 +14,26 @@ const client = new Client({
 
 
 // Log in and handle errors
-if (process.env.NODE_ENV === 'production') {
-  //check if not logged in
-  if (!client.isReady()) {
-    console.log("Trying to login discord bot ....")
-    client.login(bot_token).catch((err) => {
-      console.error('Error logging in:', err);
-    });
-  }
-  
-  client.once('ready', () => {
-    console.log('Bot is ready!');
+//check if not logged in
+if (!client.isReady()) {
+  console.log("Trying to login discord bot ....")
+  client.login(bot_token).catch((err) => {
+    console.error('Error logging in:', err);
   });
 }
 
+client.once('ready', () => {
+  console.log('Bot is ready!');
+});
+
 const sendErrorLog = async (message) => {
   try {
-
-    if (process.env.NODE_ENV != 'production') return;
     // Ensure the client is ready
     if (!client.isReady()) {
       console.error('Client is not ready. Please wait for the ready event.');
       return;
     }
-    
+
     // Fetch the channel
     const channel = await client.channels.fetch(error_channel);
     if (channel && channel.isTextBased()) {
@@ -50,14 +46,12 @@ const sendErrorLog = async (message) => {
 
 const sendSqlLog = async (message) => {
   try {
-    if (process.env.NODE_ENV != 'production') return;
-
     // Ensure the client is ready
     if (!client.isReady()) {
       console.error('Client is not ready. Please wait for the ready event.');
       return;
     }
-    
+
     // Fetch the channel
     const channel = await client.channels.fetch(sql_log_channel);
     if (channel && channel.isTextBased()) {
@@ -71,13 +65,12 @@ const sendSqlLog = async (message) => {
 
 const sendEtcLog = async (message) => {
   try {
-    if (process.env.NODE_ENV != 'production') return;
     // Ensure the client is ready
     if (!client.isReady()) {
       console.error('Client is not ready. Please wait for the ready event.');
       return;
     }
-    
+
     // Fetch the channel
     const channel = await client.channels.fetch(etc_log_channel);
     if (channel && channel.isTextBased()) {

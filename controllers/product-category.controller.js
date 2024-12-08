@@ -2,6 +2,7 @@ import productCategory from "../models/product-category.model.js";
 import Joi from "joi";
 import slugGenerator from "../utils/slug-generator.js";
 import mongoose from '../services/mongodb.js';
+import discord from "../services/discord-log.js"
 
 // Create and Save a new ProductCategory
 const createProductCategory = async (req, res) => {
@@ -21,11 +22,14 @@ const createProductCategory = async (req, res) => {
     });
     const savedProductCategory = await newProductCategory.save();
 
+    discord.sendEtcLog("Prduct Saved" + JSON.stringify(savedProductCategory));
+
     return res.status(200).json({
       message: "Product Category created successfully",
       data: savedProductCategory,
     });
   } catch (err) {
+    discord.sendErrorLog(err);
     res.json({ message: err });
   }
 };
@@ -40,6 +44,7 @@ const getAllProductCategories = async (req, res) => {
       data: productCategories,
     });
   } catch (err) {
+    discord.sendErrorLog(err);
     res.json({ message: err });
   }
 };
@@ -61,6 +66,7 @@ const getSingleProductCategory = async (req, res) => {
       data: data,
     });
   } catch (err) {
+    discord.sendErrorLog(err);
     res.json({ message: err });
   }
 };
@@ -86,11 +92,13 @@ const updateProductCategory = async (req, res) => {
       });
     }
 
+    discord.sendEtcLog("Product Updated: " + JSON.stringify(data));
     return res.status(200).json({
       message: "Product Category updated successfully",
       data: data,
     });
   } catch (err) {
+    discord.sendErrorLog(err);
     res.json({ message: err });
   }
 };
@@ -111,6 +119,7 @@ const deleteProductCategory = async (req, res) => {
       message: "Product Category deleted successfully",
     });
   } catch (err) {
+    discord.sendErrorLog(err);
     res.json({ message: err });
   }
 };
@@ -136,6 +145,7 @@ const searchProductCategory = async (req, res) => {
     });
 
   } catch (err) {
+    discord.sendErrorLog(err);
     res.json({ message: err });
   }
 };
@@ -167,6 +177,7 @@ const filterProductCategory = async (req, res) => {
     });
 
   } catch (err) {
+    discord.sendErrorLog(err);
     res.json({ message: err });
   }
 };

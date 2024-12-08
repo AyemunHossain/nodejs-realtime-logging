@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import User from '../models/user.models.js';
+import discord from "../services/discord-log.js"
 
 const register = async (req, res, next) => {
     try {
@@ -19,6 +20,7 @@ const register = async (req, res, next) => {
         return res.status(201).json({ success: true, token, expiresIn: '1d' });
 
     } catch (error) {
+        discord.sendErrorLog(error);
         console.log(error);
         next(error);
     }
@@ -40,6 +42,7 @@ const login = async (req, res, next) => {
         return res.status(200).json({ token });
 
     } catch (error) {
+        discord.sendErrorLog(error);
         return res.status(400).json({ success: false, error: "Invalid credentials" });
     }
 };
